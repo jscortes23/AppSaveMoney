@@ -1,90 +1,34 @@
 import { TextStylesProps } from 'interfaces/IStyledText'
 import React from 'react'
-import { StyleSheet, Text, TextStyle } from 'react-native'
+import { Text } from 'react-native'
+import { colors, fontSize, fontWeight, textFallback } from 'themes/appTheme'
 
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 12,
-    color: '#FFFFFF'
-  },
-  smX3: {
-    fontSize: 6
-  },
-  smX2: {
-    fontSize: 8
-  },
-  smX: {
-    fontSize: 10
-  },
-  sm: {
-    fontSize: 12
-  },
-  md: {
-    fontSize: 14
-  },
-  lg: {
-    fontSize: 16
-  },
-  lgX: {
-    fontSize: 18
-  },
-  lgX2: {
-    fontSize: 24
-  },
-  lgX3: {
-    fontSize: 28
-  },
-  lgX4: {
-    fontSize: 40
-  },
-  regular: {
-    fontWeight: '400'
-  },
-  semiBold: {
-    fontWeight: '600'
-  },
-  darkBlue: {
-    color: '#022A72'
-  },
-  lightBlue: {
-    color: '#01BBF4'
-  },
-  white: {
-    color: '#FFFFFF'
-  },
-  black: {
-    color: '#000000'
-  },
-  grey: {
-    color: '#8E8E93'
-  }
-})
+export default function StyledText({ children, smX3, smX2, smX, sm, md, lg, lgX, lgX2, lgX3, lgX4, regular, semiBold, darkBlue, lightBlue, white, black, grey, style, restOfProps }: TextStylesProps) {
 
-export default function StyledText({ children, text, smX3, smX2, smX, sm, md, lg, lgX, lgX2, lgX3, lgX4, regular, semiBold, darkBlue, lightBlue, white, black, grey }: TextStylesProps) {
-  // const textStyles: [ number | string | undefined ] = [
   const textStyles: any = [
-    text,
-    smX3 && styles.smX3,
-    smX2 && styles.smX2,
-    smX && styles.smX,
-    sm && styles.sm,
-    md && styles.md,
-    lg && styles.lg,
-    lgX && styles.lgX,
-    lgX2 && styles.lgX2,
-    lgX3 && styles.lgX3,
-    lgX4 && styles.lgX4,
-    regular && styles.regular,
-    semiBold && styles.semiBold,
-    darkBlue && styles.darkBlue,
-    lightBlue && styles.lightBlue,
-    white && styles.white,
-    black && styles.black,
-    grey && styles.grey
+    { ...textFallback.text },
+    smX3 && fontSize.smX3,
+    smX2 && fontSize.smX2,
+    smX && fontSize.smX,
+    sm && fontSize.sm,
+    md && fontSize.md,
+    lg && fontSize.lg,
+    lgX && fontSize.lgX,
+    lgX2 && fontSize.lgX2,
+    lgX3 && fontSize.lgX3,
+    lgX4 && fontSize.lgX4,
+    regular && fontWeight.regular,
+    semiBold && fontWeight.semiBold,
+    darkBlue && colors.darkBlue,
+    lightBlue && colors.lightBlue,
+    white && colors.white,
+    black && colors.black,
+    grey && colors.grey,
+    { ...style }
   ]
 
   return (
-    <Text style={textStyles}>
+    <Text style={textStyles} {...restOfProps}>
       {children}
     </Text>
   )

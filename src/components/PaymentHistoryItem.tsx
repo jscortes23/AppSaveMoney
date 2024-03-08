@@ -1,27 +1,40 @@
 import { PaymentHistory } from "interfaces/IPaymentHistory"
 import React from "react"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 import StyledText from "@components/StyledText"
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    paddingBottom: 10,
-    paddingTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    paddingEnd: 30,
     backgroundColor: '#000000',
-    borderRadius: 12,
+    borderRadius: 4,
   },
-  white: {
-    color: '#ffffff'
+  sectionPrice: {
+    flex: 1,
+    rowGap: 2
+  },
+  sectionState: {
+    flex: .5
   }
 })
+
+const parseThousands = (price: number) => {
+  return price >= 1000
+    ? `$ ${Math.round(price / 100) / 10}K` :
+    `$ ${price}`
+}
 
 const PaymentHistoryItem = ({ id, fecha, dinero_gastado, estado }: PaymentHistory) => {
   return (
     <View key={id} style={styles.container}>
-      <StyledText lightBlue>Fecha: {fecha}</StyledText>
-      <Text style={styles.white}>Dinero gastado:{dinero_gastado}</Text>
-      <Text style={styles.white}>Estado: {estado}</Text>
+      <View style={styles.sectionPrice}>
+        <StyledText white smX2>Fecha: {fecha}</StyledText>
+        <StyledText white lg semiBold>{parseThousands(dinero_gastado)}</StyledText>
+      </View>
+      <StyledText white smX style={styles.sectionState}>{estado}</StyledText>
     </View>
   )
 }
