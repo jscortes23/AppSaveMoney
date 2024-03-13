@@ -1,6 +1,10 @@
 import StyledText from "components/StyledText"
 import { useState } from "react"
 import { Alert, Button, Image, StyleSheet, View } from "react-native"
+import { size } from "themes/appTheme"
+import SetupAccountScreen from "screens/SetupAccountScreen"
+import { NavigationContainer } from '@react-navigation/native'
+// import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 
 const styles = StyleSheet.create({
@@ -13,7 +17,10 @@ const styles = StyleSheet.create({
   },
 })
 
-const Welcome = () => {
+const WelcomeScreen = ({ navigation }: any) => {
+  const handlePress = () => {
+    navigation.navigate('Detail report')
+  }
 
   return (
     <View style={styles.container}>
@@ -23,12 +30,12 @@ const Welcome = () => {
       <StyledText lg regular>Your partner in smart saving and financial empowerment!</StyledText>
       <Image
         source={require('../../assets/img/bagMoney.png')}
-        style={{ width: 284, height: 249 }}
+        style={size.lg}
       />
       <Button
-        onPress={() => { Alert.alert('Funciona') }}
+        onPress={handlePress}
         title="Next"
-        color="#841584"
+        color="#fffff"
         accessibilityLabel="Learn more about this purple button"
       />
 
@@ -36,4 +43,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default WelcomeScreen

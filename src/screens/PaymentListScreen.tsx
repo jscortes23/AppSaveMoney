@@ -1,7 +1,7 @@
 import React from 'react'
 import { FlatList, StyleSheet, Text } from "react-native"
 import paymentHistory from "../data/paymentHistory"
-import PaymentHistoryItem from './PaymentHistoryItem'
+import PaymentHistoryItem from '../components/PaymentHistoryItem'
 
 const styles = StyleSheet.create({
   container: {
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   }
 })
 
-const PaymentList = () => {
+const PaymentListScreen = () => {
   return (
     <FlatList
       style={styles.container}
@@ -28,4 +28,4 @@ const PaymentList = () => {
   )
 }
 
-export default PaymentList
+export default PaymentListScreen

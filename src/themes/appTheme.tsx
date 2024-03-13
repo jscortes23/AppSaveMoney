@@ -8,9 +8,16 @@ const rootColor = {
   grey: '#8E8E93',
 }
 
+export const algin = StyleSheet.create({
+  center: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+
 export const colors = StyleSheet.create({
   darkBlue: {
-    color: rootColor.darkBlue
+    color: rootColor.darkBlue,
   },
   lightBlue: {
     color: rootColor.lightBlue
@@ -75,3 +82,30 @@ export const fontWeight = StyleSheet.create({
   },
 })
 
+export const shadow = StyleSheet.create({
+  md: {
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 8,
+    elevation: 2
+  },
+  lg: {
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 10
+    },
+    shadowRadius: 8,
+    elevation: 2
+  }
+})
+
+export const size = StyleSheet.create({
+  lg: {
+    width: 284,
+    height: 249
+  }
+})

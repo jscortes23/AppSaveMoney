@@ -1,43 +1,36 @@
 import { Image, StyleSheet, View } from "react-native"
 import StyledText from "./StyledText"
+import NavbarButton from "./StyledNavbar"
+import { algin, shadow } from "themes/appTheme"
+import { NavigationContainer } from '@react-navigation/native'
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { createStackNavigator } from '@react-navigation/stack'
+import WelcomeScreen from "screens/WelcomeScreen"
+import StyledNavbar from "./StyledNavbar"
+import PaymentListScreen from "screens/PaymentListScreen"
+import SetupAccountScreen from "screens/SetupAccountScreen"
 // Para que calcule de forma automatica la barra de arriba del celular
 // import Constants from 'expo-constants'
 
-const styles = StyleSheet.create({
-  container: {
-    // paddingTop: Constants.statusBarHeight + 10,
-    marginBottom: 16,
-    marginHorizontal: 24,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
-    backgroundColor: '#cacaca',
-    borderRadius: 50,
-    shadowColor: 'black',
-    shadowOffset: {
-      width: 0,
-      height: 4
-    },
-    shadowRadius: 8,
-    elevation: 2
-  }
-})
+const Tab = createBottomTabNavigator()
+const Stack = createStackNavigator();
 
 const AppBar = () => {
   return (
-    <View style={styles.container}>
-      <StyledText>
-        <Image
-          source={require('../../assets/img/bagMoney.png')}
-          style={{ width: 20, height: 20 }}
-        />
-        Home
-      </StyledText>
-      <StyledText>Goals</StyledText>
-      <StyledText>Notification</StyledText>
-      <StyledText>Reports</StyledText>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator tabBar={StyledNavbar}>
+        <Tab.Screen name="Home" component={WelcomeScreen} />
+        <Tab.Screen name="Setup your account" component={SetupAccountScreen} />
+        <Stack.Screen name="Detail report" component={PaymentListScreen} />
+      </Tab.Navigator>
+
+      {/* <View style={[styles.container, shadow.md]}> */}
+      {/* <NavbarButton text="Home" />
+        <NavbarButton text="Goals" />
+        <NavbarButton text="Notification" />
+        <NavbarButton text="Reports" /> */}
+      {/* </View> */}
+    </NavigationContainer>
   )
 }
 
