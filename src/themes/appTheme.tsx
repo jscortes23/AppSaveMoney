@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const rootColor = {
+export const rootColor = {
   darkBlue: '#022A72',
   lightBlue: '#01BBF4',
   white: '#FFFFFF',

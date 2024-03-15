@@ -54,6 +54,7 @@ function StyledNavbar({ state, descriptors, navigation }: any) {
 
           return (
             <TouchableOpacity
+              key={index}
               accessibilityRole="button"
               accessibilityState={isFocused ? { selected: true } : {}}
               accessibilityLabel={options.tabBarAccessibilityLabel}

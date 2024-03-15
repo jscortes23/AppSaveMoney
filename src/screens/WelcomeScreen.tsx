@@ -1,7 +1,7 @@
 import StyledText from "components/StyledText"
 import { useState } from "react"
-import { Alert, Button, Image, StyleSheet, View } from "react-native"
-import { size } from "themes/appTheme"
+import { Alert, Button, Image, Pressable, StyleSheet, Text, View } from "react-native"
+import { fontSize, fontWeight, rootColor, size } from "themes/appTheme"
 import SetupAccountScreen from "screens/SetupAccountScreen"
 import { NavigationContainer } from '@react-navigation/native'
 // import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -9,12 +9,25 @@ import { NavigationContainer } from '@react-navigation/native'
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     gap: 20
   },
+})
+
+const button = StyleSheet.create({
+  primary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    columnGap: 56,
+    backgroundColor: rootColor.white,
+    paddingVertical: 18,
+    paddingHorizontal: 40,
+    borderRadius: 40,
+  }
 })
 
 const WelcomeScreen = ({ navigation }: any) => {
@@ -24,7 +37,6 @@ const WelcomeScreen = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-
       <StyledText lgX2 >Welcome to</StyledText>
       <StyledText lgX4 semiBold>Money Saver</StyledText>
       <StyledText lg regular>Your partner in smart saving and financial empowerment!</StyledText>
@@ -32,13 +44,11 @@ const WelcomeScreen = ({ navigation }: any) => {
         source={require('../../assets/img/bagMoney.png')}
         style={size.lg}
       />
-      <Button
-        onPress={handlePress}
-        title="Next"
-        color="#fffff"
-        accessibilityLabel="Learn more about this purple button"
-      />
 
+      <Pressable style={button.primary} onPress={handlePress}>
+        <StyledText style={{ width: '100%' }} semiBold lg>Next</StyledText>
+        <Text style={{ flex: .1 }}>▶</Text>
+      </Pressable>
     </View>
   )
 }
