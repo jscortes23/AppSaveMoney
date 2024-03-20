@@ -107,6 +107,10 @@ export const shadow = StyleSheet.create({
 })
 
 export const size = StyleSheet.create({
+  sm: {
+    width: 70,
+    height: 78
+  },
   lg: {
     width: 284,
     height: 249

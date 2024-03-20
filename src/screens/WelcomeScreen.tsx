@@ -2,7 +2,7 @@ import BgTwoColor from "components/BgTwoColor"
 import StyledText from "components/StyledText"
 import React from "react"
 import { Image, Pressable, Text, View } from "react-native"
-import { algin, button, container, shadow, size, welcome } from "themes/appTheme"
+import { algin, button, shadow, size, welcome } from "themes/appTheme"
 
 const WelcomeScreen = ({ navigation }: any) => {
   const handlePress = () => {
@@ -34,6 +34,7 @@ const WelcomeScreen = ({ navigation }: any) => {
             <StyledText semiBold lg>Next</StyledText>
             <Text>▶</Text>
           </Pressable>
+          <Text>1 / 4</Text>
         </View>
       </View>
     </BgTwoColor>

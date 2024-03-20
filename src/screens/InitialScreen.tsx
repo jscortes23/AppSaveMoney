@@ -6,7 +6,7 @@ import { button, container, shadow, size, welcome } from "themes/appTheme"
 
 const InitialScreen = ({ navigation }: any) => {
   const handlePress = () => {
-    navigation.navigate('Welcome')
+    navigation.navigate('Account Setup')
   }
 
   return (
