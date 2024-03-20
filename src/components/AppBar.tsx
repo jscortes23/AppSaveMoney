@@ -13,7 +13,7 @@ import SetupAccountScreen from "screens/SetupAccountScreen"
 // import Constants from 'expo-constants'
 
 const Tab = createBottomTabNavigator()
-const Stack = createStackNavigator();
+const Stack = createStackNavigator()
 
 const AppBar = () => {
   return (

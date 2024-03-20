@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.js23.AppSaveMoney"
     },
     "web": {
       "favicon": "./assets/favicon.png"

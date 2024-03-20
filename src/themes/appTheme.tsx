@@ -109,3 +109,67 @@ export const size = StyleSheet.create({
     height: 249
   }
 })
+
+export const bgTwoColor = StyleSheet.create({
+  bgContainer: {
+    flex: 1,
+    backgroundColor: colors.white.color,
+  },
+  bgBlue: {
+    flex: 1,
+    top: '50%',
+    backgroundColor: colors.lightBlue.color,
+  },
+  content: {
+    position: 'absolute',
+    top: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 1
+  }
+})
+
+export const container = StyleSheet.create({
+  welcome: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+})
+
+export const welcome = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignContent: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 100,
+    height: 390,
+    justifyContent: 'space-between'
+  },
+  content: {
+    // para la vista welcomo que tiene la imagen y el texto
+  },
+  title: {
+    alignItems: 'center',
+    rowGap: 4,
+  }
+
+})
+
+export const button = StyleSheet.create({
+  primary: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    columnGap: 20,
+    backgroundColor: rootColor.white,
+    paddingVertical: 18,
+    paddingHorizontal: 40,
+    borderRadius: 40,
+  }
+})

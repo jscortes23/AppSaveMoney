@@ -1,20 +1,17 @@
 import React from "react"
-import { View } from "react-native"
-import PaymentList from "screens/PaymentListScreen"
-import Welcome from "screens/WelcomeScreen"
-import AppBar from "components/AppBar"
+import { StyleSheet, Text, View } from "react-native"
 import { StatusBar } from "react-native"
-import SetupAccount from "screens/SetupAccountScreen"
+import BgTwoColor from "components/BgTwoColor"
+import StackNavigator from "navigators/StackNavigator"
+
 
 const Main = () => {
   return (
     <View style={{ flex: 1 }}>
       <StatusBar />
-      {/* <PaymentList /> */}
-      {/* <Welcome /> */}
-      <AppBar />
+      <StackNavigator />
     </View>
-  )
-}
+  );
+};
 
 export default Main
