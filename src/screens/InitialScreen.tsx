@@ -26,11 +26,12 @@ const InitialScreen = ({ navigation }: any) => {
           </View>
         </View>
 
-        <View>
+        <View style={welcome.footer}>
           <Pressable style={button.primary} onPress={handlePress}>
             <StyledText semiBold lg>Next</StyledText>
             <Text>▶</Text>
           </Pressable>
+          <Text>2 / 4</Text>
         </View>
       </View>
     </BgTwoColor>

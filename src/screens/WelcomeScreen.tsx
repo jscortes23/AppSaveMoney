@@ -2,7 +2,7 @@ import BgTwoColor from "components/BgTwoColor"
 import StyledText from "components/StyledText"
 import React from "react"
 import { Image, Pressable, Text, View } from "react-native"
-import { button, container, shadow, size } from "themes/appTheme"
+import { algin, button, container, shadow, size, welcome } from "themes/appTheme"
 
 const WelcomeScreen = ({ navigation }: any) => {
   const handlePress = () => {
@@ -12,19 +12,29 @@ const WelcomeScreen = ({ navigation }: any) => {
   return (
 
     <BgTwoColor>
-      <View style={container.welcome}>
-        <StyledText lgX2 >Welcome to</StyledText>
-        <StyledText lgX4 semiBold>Money Saver</StyledText>
-        <StyledText lg regular>Your partner in smart saving and financial empowerment!</StyledText>
-        <Image
-          source={require('../../assets/img/bagMoney.png')}
-          style={[size.lg, shadow.lg]}
-        />
+      <View style={welcome.container}>
+        <View style={welcome.header}>
+          <View style={welcome.title}>
+            <StyledText lgX2 >Welcome to</StyledText>
+            <StyledText lgX4 semiBold>Money Saver</StyledText>
+          </View>
 
-        <Pressable style={button.primary} onPress={handlePress}>
-          <StyledText semiBold lg>Next</StyledText>
-          <Text>▶</Text>
-        </Pressable>
+          <View style={welcome.content}>
+            <StyledText lg regular style={algin.textCenter}>Your partner in smart saving and financial empowerment!</StyledText>
+            <Image
+              source={require('../../assets/img/bagMoney.png')}
+              style={[size.lg, shadow.lg]}
+            />
+          </View>
+        </View>
+
+
+        <View style={welcome.footer}>
+          <Pressable style={button.primary} onPress={handlePress}>
+            <StyledText semiBold lg>Next</StyledText>
+            <Text>▶</Text>
+          </Pressable>
+        </View>
       </View>
     </BgTwoColor>
   )

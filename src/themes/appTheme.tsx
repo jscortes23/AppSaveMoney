@@ -12,6 +12,9 @@ export const algin = StyleSheet.create({
   center: {
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  textCenter: {
+    textAlign: 'center'
   }
 })
 
@@ -152,11 +155,19 @@ export const welcome = StyleSheet.create({
     justifyContent: 'space-between'
   },
   content: {
-    // para la vista welcomo que tiene la imagen y el texto
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 23,
   },
   title: {
     alignItems: 'center',
     rowGap: 4,
+  },
+  footer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 20,
   }
 
 })
