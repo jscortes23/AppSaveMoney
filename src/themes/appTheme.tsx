@@ -176,6 +176,67 @@ export const welcome = StyleSheet.create({
 
 })
 
+export const AccountSetup = StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderColor: rootColor.black,
+    borderRadius: 4,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  containerInputs: {
+    rowGap: 16,
+    marginBottom: 20
+  },
+  bgBlueRounded: {
+    width: 184,
+    aspectRatio: 1,
+    backgroundColor: rootColor.lightBlue,
+    borderRadius: 1000,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+  },
+  header: {
+    rowGap: 4,
+    alignItems: 'center',
+    marginBottom: 28,
+    paddingHorizontal: 20,
+  },
+  sectionPhoto: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 6,
+    marginBottom: 20
+  },
+  footer: {
+    alignItems: 'center',
+    rowGap: 20,
+  }
+})
+
+export const modalAccountSetup = StyleSheet.create({
+  centerView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22
+  },
+  container: {
+    paddingHorizontal: 40,
+    paddingVertical: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    rowGap: 20,
+    backgroundColor: rootColor.white,
+    borderRadius: 20,
+  }
+})
+
 export const button = StyleSheet.create({
   primary: {
     flexDirection: 'row',
@@ -186,5 +247,15 @@ export const button = StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: 40,
     borderRadius: 40,
-  }
+  },
+  secondary: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: rootColor.black,
+    flexDirection: 'row',
+    columnGap: 20,
+    paddingVertical: 18,
+    paddingHorizontal: 40,
+    borderRadius: 40,
+  },
 })

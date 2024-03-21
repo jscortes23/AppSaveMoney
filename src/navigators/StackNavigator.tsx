@@ -7,7 +7,11 @@ const Stack = createStackNavigator()
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator >
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="Setup Initial" component={InitialScreen} />
       <Stack.Screen name="Account Setup" component={AccountSetupScreen} />
