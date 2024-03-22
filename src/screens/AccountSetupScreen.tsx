@@ -1,11 +1,10 @@
-import StyledModal from "components/StyledModal"
 import StyledText from "components/StyledText"
 import { useRef, useState } from "react"
 import { Alert, Image, Modal, Pressable, TextInput, View } from "react-native"
 import { AccountSetup, algin, button, modalAccountSetup, rootColor, size } from "themes/appTheme"
 
 
-const AccountSetupScreen = () => {
+const AccountSetupScreen = ({ navigation }: any) => {
   const [fullName, setFullName] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -28,7 +27,7 @@ const AccountSetupScreen = () => {
 
   const handleSubmit = () => {
     if (fullName === '' || phone === '' || email === '' || bankAccountNumber === '') return setModal(true)
-    Alert.alert('Account Setup', 'Account setup completed successfully')
+    navigation.navigate('Planning')
   }
 
   return (

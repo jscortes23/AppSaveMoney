@@ -2,7 +2,7 @@ import BgTwoColor from "components/BgTwoColor"
 import StyledText from "components/StyledText"
 import React from "react"
 import { Image, Pressable, Text, View } from "react-native"
-import { button, container, shadow, size, welcome } from "themes/appTheme"
+import { button, shadow, size, welcome } from "themes/appTheme"
 
 const InitialScreen = ({ navigation }: any) => {
   const handlePress = () => {
