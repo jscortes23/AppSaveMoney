@@ -21,10 +21,12 @@ const WelcomeScreen = ({ navigation }: any) => {
 
           <View style={welcome.content}>
             <StyledText lg regular style={algin.textCenter}>Your partner in smart saving and financial empowerment!</StyledText>
-            <Image
-              source={require('../../assets/img/bagMoney.png')}
-              style={[size.lg, shadow.lg]}
-            />
+            <View style={shadow.lg}>
+              <Image
+                source={require('../../assets/img/bagMoney.png')}
+                style={size.lg}
+              />
+            </View>
           </View>
         </View>
 

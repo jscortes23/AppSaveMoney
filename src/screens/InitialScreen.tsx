@@ -19,10 +19,12 @@ const InitialScreen = ({ navigation }: any) => {
           </View>
 
           <View style={welcome.content}>
-            <Image
-              source={require('../../assets/img/setupImage.png')}
-              style={[size.lg, shadow.lg]}
-            />
+            <View style={shadow.lg}>
+              <Image
+                source={require('../../assets/img/setupImage.png')}
+                style={size.lg}
+              />
+            </View>
           </View>
         </View>
 
