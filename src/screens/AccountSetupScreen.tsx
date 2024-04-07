@@ -1,7 +1,7 @@
 import StyledText from "components/StyledText"
 import { useRef, useState } from "react"
 import { Alert, Image, Modal, Pressable, TextInput, View } from "react-native"
-import { AccountSetup, algin, button, modalAccountSetup, rootColor, size } from "themes/appTheme"
+import { AccountSetup, button, modalAccountSetup, rootColor, size } from "themes/appTheme"
 
 
 const AccountSetupScreen = ({ navigation }: any) => {
@@ -51,7 +51,7 @@ const AccountSetupScreen = ({ navigation }: any) => {
 
       <View style={AccountSetup.header}>
         <StyledText semiBold lgX2>Account Setup</StyledText>
-        <StyledText lg style={algin.textCenter}>Please provide the basic details to complete the account setup</StyledText>
+        <StyledText lg textCentered>Please provide the basic details to complete the account setup</StyledText>
       </View>
       <Pressable style={AccountSetup.sectionPhoto} onPress={handleUploadPhoto}>
         <View style={AccountSetup.bgBlueRounded}>
@@ -109,7 +109,7 @@ const AccountSetupScreen = ({ navigation }: any) => {
         </Pressable>
         <View>
           <StyledText lg>Already have Account?</StyledText>
-          <StyledText lg lightBlue style={algin.textCenter}>Login Here</StyledText>
+          <StyledText lg lightBlue textCentered>Login Here</StyledText>
         </View>
       </View>
     </View>

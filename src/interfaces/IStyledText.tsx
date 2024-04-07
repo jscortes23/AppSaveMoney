@@ -19,4 +19,5 @@ export interface TextStylesProps {
   grey?: boolean
   style?: {}
   restOfProps?: any
+  textCentered?: boolean
 }

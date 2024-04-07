@@ -2,7 +2,7 @@ import BgTwoColor from "components/BgTwoColor"
 import StyledText from "components/StyledText"
 import React from "react"
 import { Image, Pressable, Text, View } from "react-native"
-import { algin, button, shadow, size, welcome } from "themes/appTheme"
+import { button, shadow, size, welcome } from "themes/appTheme"
 
 const WelcomeScreen = ({ navigation }: any) => {
   const handlePress = () => {
@@ -20,7 +20,7 @@ const WelcomeScreen = ({ navigation }: any) => {
           </View>
 
           <View style={welcome.content}>
-            <StyledText lg regular style={algin.textCenter}>Your partner in smart saving and financial empowerment!</StyledText>
+            <StyledText lg regular textCentered>Your partner in smart saving and financial empowerment!</StyledText>
             <View style={shadow.lg}>
               <Image
                 source={require('../../assets/img/bagMoney.png')}

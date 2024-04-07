@@ -8,12 +8,8 @@ export const rootColor = {
   grey: '#8E8E93',
 }
 
-export const algin = StyleSheet.create({
+export const text = StyleSheet.create({
   center: {
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  textCenter: {
     textAlign: 'center'
   }
 })

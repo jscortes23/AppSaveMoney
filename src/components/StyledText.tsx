@@ -1,9 +1,9 @@
 import { TextStylesProps } from 'interfaces/IStyledText'
 import React from 'react'
 import { Text } from 'react-native'
-import { colors, fontSize, fontWeight, textFallback } from 'themes/appTheme'
+import { colors, fontSize, fontWeight, text, textFallback } from 'themes/appTheme'
 
-export default function StyledText({ children, smX3, smX2, smX, sm, md, lg, lgX, lgX2, lgX3, lgX4, regular, semiBold, darkBlue, lightBlue, white, black, grey, style, restOfProps }: TextStylesProps) {
+export default function StyledText({ children, smX3, smX2, smX, sm, md, lg, lgX, lgX2, lgX3, lgX4, regular, semiBold, darkBlue, lightBlue, white, black, grey, style, textCentered, restOfProps }: TextStylesProps) {
 
   const textStyles: any = [
     { ...textFallback.text },
@@ -24,6 +24,7 @@ export default function StyledText({ children, smX3, smX2, smX, sm, md, lg, lgX,
     white && colors.white,
     black && colors.black,
     grey && colors.grey,
+    textCentered && text.center,
     { ...style }
   ]
 
