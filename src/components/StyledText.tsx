@@ -3,34 +3,36 @@ import React from 'react'
 import { Text } from 'react-native'
 import { colors, fontSize, fontWeight, text, textFallback } from 'themes/appTheme'
 
-export default function StyledText({ children, smX3, smX2, smX, sm, md, lg, lgX, lgX2, lgX3, lgX4, regular, semiBold, darkBlue, lightBlue, white, black, grey, style, textCentered, restOfProps }: TextStylesProps) {
+const StyledText: React.FC<TextStylesProps> = (props) => {
 
-  const textStyles: any = [
+  const textStyles: {} = [
     { ...textFallback.text },
-    smX3 && fontSize.smX3,
-    smX2 && fontSize.smX2,
-    smX && fontSize.smX,
-    sm && fontSize.sm,
-    md && fontSize.md,
-    lg && fontSize.lg,
-    lgX && fontSize.lgX,
-    lgX2 && fontSize.lgX2,
-    lgX3 && fontSize.lgX3,
-    lgX4 && fontSize.lgX4,
-    regular && fontWeight.regular,
-    semiBold && fontWeight.semiBold,
-    darkBlue && colors.darkBlue,
-    lightBlue && colors.lightBlue,
-    white && colors.white,
-    black && colors.black,
-    grey && colors.grey,
-    textCentered && text.center,
-    { ...style }
+    props.smX3 && fontSize.smX3,
+    props.smX2 && fontSize.smX2,
+    props.smX && fontSize.smX,
+    props.sm && fontSize.sm,
+    props.md && fontSize.md,
+    props.lg && fontSize.lg,
+    props.lgX && fontSize.lgX,
+    props.lgX2 && fontSize.lgX2,
+    props.lgX3 && fontSize.lgX3,
+    props.lgX4 && fontSize.lgX4,
+    props.regular && fontWeight.regular,
+    props.semiBold && fontWeight.semiBold,
+    props.darkBlue && colors.darkBlue,
+    props.lightBlue && colors.lightBlue,
+    props.white && colors.white,
+    props.black && colors.black,
+    props.grey && colors.grey,
+    props.textCentered && text.center,
+    { ...props.style }
   ]
 
   return (
-    <Text style={textStyles} {...restOfProps}>
-      {children}
+    <Text style={textStyles} {...props.restOfProps}>
+      {props.children}
     </Text>
   )
 }
+
+export default StyledText
