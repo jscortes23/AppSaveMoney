@@ -4,11 +4,13 @@ import { useEffect, useState } from "react"
 import { Alert, Pressable, Text, TextInput, View } from "react-native"
 import { AccountSetup, button, rootColor } from "themes/appTheme"
 
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
-import { appFirebase } from "config/firebaseConfig"
-import { auth } from "config/firebaseConfig";
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types"
 import { StackParamsList } from "navigators/StackNavigator"
+
+// Firebase
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { appFirebase } from "config/firebaseConfig"
+import { auth } from "config/firebaseConfig";
 
 type LoginScreenProps = NativeStackScreenProps<StackParamsList, 'Login'>
 
@@ -19,15 +21,14 @@ const LoginScreen: React.FC<LoginScreenProps> = (props) => {
   const [password, setPassword] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState<string>('')
 
-
-
   const handleLogin = async () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentail) => {
+        const user = userCredentail.user
+        if (!user) return
+        navigation.navigate('PaymentList')
       })
       .catch((error) => {
-        const errorCode = error.code
         setErrorMessage(error.message)
       })
   }
