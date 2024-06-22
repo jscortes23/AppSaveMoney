@@ -1,12 +1,18 @@
 import BgTwoColor from "components/BgTwoColor"
 import StyledText from "components/StyledText"
+import { StackParamsList } from "navigators/StackNavigator"
 import React from "react"
 import { Image, Pressable, Text, View } from "react-native"
+import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types"
 import { button, shadow, size, welcome } from "themes/appTheme"
 
-const InitialScreen = ({ navigation }: any) => {
+type InitialScreenProps = NativeStackScreenProps<StackParamsList, 'SetupInitial'>
+
+const InitialScreen: React.FC<InitialScreenProps> = (props) => {
+  const { navigation } = props
+
   const handlePress = () => {
-    navigation.navigate('Account Setup')
+    navigation.navigate('AccountSetup')
   }
 
   return (

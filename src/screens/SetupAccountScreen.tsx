@@ -1,6 +1,6 @@
 import StyledText from "components/StyledText"
 import { Image, StyleSheet, View } from "react-native"
-import { algin, size } from "themes/appTheme"
+import { size } from "themes/appTheme"
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 
 const SetupAccountScreen = () => {
   return (
-    <View style={[algin.center, styles.container]}>
+    <View style={styles.container}>
       <StyledText semiBold lgX3>Setup Your Account</StyledText>
       <StyledText lg>In just few minutes</StyledText>
       <Image source={require('../../assets/img/setupImage.png')} style={size.lg} />

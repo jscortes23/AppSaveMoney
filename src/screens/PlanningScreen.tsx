@@ -1,8 +1,12 @@
 import StyledText from "components/StyledText"
+import { StackParamsList } from "navigators/StackNavigator"
 import { Alert, Image, Pressable, ScrollView, StyleSheet, TextInput, View } from "react-native"
+import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types"
 import { button, fontSize, rootColor, size } from "themes/appTheme"
 
-const PlanningScreen = () => {
+type PlanningScreenProps = NativeStackScreenProps<StackParamsList, 'Planning'>
+
+const PlanningScreen: React.FC<PlanningScreenProps> = (props) => {
   const handleSubmit = () => {
     Alert.alert('Planning', 'Planning completed successfully')
   }

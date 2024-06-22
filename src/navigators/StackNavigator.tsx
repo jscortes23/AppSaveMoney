@@ -3,10 +3,19 @@ import InitialScreen from 'screens/InitialScreen'
 import WelcomeScreen from 'screens/WelcomeScreen'
 import AccountSetupScreen from 'screens/AccountSetupScreen'
 import PlanningScreen from 'screens/PlanningScreen'
+import LoginScreen from 'screens/LoginScreen'
 
-const Stack = createStackNavigator()
+export type StackParamsList = {
+  Welcome: undefined
+  SetupInitial: undefined
+  AccountSetup: undefined
+  Planning: undefined
+  Login: undefined
+}
 
-const StackNavigator = () => {
+const Stack = createStackNavigator<StackParamsList>()
+
+export const StackNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -14,11 +23,24 @@ const StackNavigator = () => {
       }}
     >
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      <Stack.Screen name="Setup Initial" component={InitialScreen} />
-      <Stack.Screen name="Account Setup" component={AccountSetupScreen} />
+      <Stack.Screen name="SetupInitial" component={InitialScreen} />
       <Stack.Screen name="Planning" component={PlanningScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      {/* <Stack.Screen name="" component={LoginScreen} /> */}
     </Stack.Navigator>
   )
 }
 
-export default StackNavigator
+
+export const StackLogin = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="AccountSetup" component={AccountSetupScreen} />
+    </Stack.Navigator>
+  )
+}

@@ -1,10 +1,15 @@
 import StyledText from "components/StyledText"
+import { StackParamsList } from "navigators/StackNavigator"
 import { useRef, useState } from "react"
 import { Alert, Image, Modal, Pressable, TextInput, View } from "react-native"
+import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types"
 import { AccountSetup, button, modalAccountSetup, rootColor, size } from "themes/appTheme"
 
+type AccountSetupScreenProps = NativeStackScreenProps<StackParamsList, 'AccountSetup'>
 
-const AccountSetupScreen = ({ navigation }: any) => {
+const AccountSetupScreen: React.FC<AccountSetupScreenProps> = (props) => {
+  const { navigation } = props
+
   const [fullName, setFullName] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -32,7 +37,6 @@ const AccountSetupScreen = ({ navigation }: any) => {
 
   return (
     <View style={AccountSetup.container}>
-
       <Modal
         animationType="slide"
         transparent={true}
@@ -109,7 +113,9 @@ const AccountSetupScreen = ({ navigation }: any) => {
         </Pressable>
         <View>
           <StyledText lg>Already have Account?</StyledText>
-          <StyledText lg lightBlue textCentered>Login Here</StyledText>
+          <Pressable onPress={() => navigation.navigate('Login')}>
+            <StyledText lg lightBlue textCentered>Login Here</StyledText>
+          </Pressable>
         </View>
       </View>
     </View>
