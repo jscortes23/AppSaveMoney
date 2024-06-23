@@ -191,6 +191,7 @@ export const AccountSetup = StyleSheet.create({
     borderRadius: 1000,
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: "hidden"
   },
   container: {
     flex: 1,
@@ -210,6 +211,7 @@ export const AccountSetup = StyleSheet.create({
     marginBottom: 20
   },
   footer: {
+    paddingBottom: 40,
     alignItems: 'center',
     rowGap: 20,
   }

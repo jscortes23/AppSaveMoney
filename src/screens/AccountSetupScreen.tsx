@@ -1,7 +1,6 @@
-import { ErrorLike } from "@react-native-async-storage/async-storage/lib/typescript/types"
 import StyledText from "components/StyledText"
 import { auth, dbFirebase } from "config/firebaseConfig"
-import { ErrorFn, createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 import { ref, set } from "firebase/database"
 import { UserData } from "interfaces/IUser"
 import { StackParamsList } from "navigators/StackNavigator"
@@ -10,11 +9,14 @@ import { Alert, Image, Modal, Pressable, ScrollView, TextInput, View } from "rea
 import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types"
 import { AccountSetup, button, modalAccountSetup, rootColor, size } from "themes/appTheme"
 
+import * as ImagePicker from 'expo-image-picker';
+
 type AccountSetupScreenProps = NativeStackScreenProps<StackParamsList, 'AccountSetup'>
 
 const AccountSetupScreen: React.FC<AccountSetupScreenProps> = (props) => {
   const { navigation } = props
 
+  // Estados para guardar lo ingresado por cada uno de los inputs
   const [fullName, setFullName] = useState<string>('')
   const [phoneNumber, setPhoneNumber] = useState<string>('')
   const [email, setEmail] = useState<string>('')
@@ -22,20 +24,54 @@ const AccountSetupScreen: React.FC<AccountSetupScreenProps> = (props) => {
   const [password, setPassword] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState<string>('')
 
+  // Estado para mostrar el modal
+  const [modal, setModal] = useState<boolean>(false)
+
+  // Estado para la imagen seleccionada
+  const [image, setImage] = useState<string>('')
+
+  // Referencias para manipular cada uno de los inputs
   const fullNameRef = useRef<TextInput>(null)
   const phoneNumberRef = useRef<TextInput>(null)
   const emailRef = useRef<TextInput>(null)
   const passwordRef = useRef<TextInput>(null)
   const bankAccountNumberRef = useRef<TextInput>(null)
 
-  const [modal, setModal] = useState<boolean>(false)
-
+  // Ocultar o mostrar el modal
   const handleModal = () => {
     setModal(!modal)
   }
 
-  const handleUploadPhoto = () => {
-    Alert.alert('Account Setup', 'Photo uploaded successfully')
+  // Tomar una foto
+  const takePhoto = async () => {
+    let result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    })
+
+    console.log(result)
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri)
+    }
+  }
+
+  // Seleccionar una imagen de galeria
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1
+    })
+
+    console.log(result)
+
+    if (!result.canceled) {
+      setImage(result.assets[0].uri)
+    }
   }
 
   const handleSubmit = () => {
@@ -43,6 +79,7 @@ const AccountSetupScreen: React.FC<AccountSetupScreenProps> = (props) => {
     handleRegister({ fullName, phoneNumber, email, password, bankAccountNumber })
   }
 
+  // Creacion de un usuario (Se guarda en Firebase)
   const handleRegister = async ({ fullName, phoneNumber, email, password, bankAccountNumber }: UserData) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
@@ -84,11 +121,15 @@ const AccountSetupScreen: React.FC<AccountSetupScreenProps> = (props) => {
           <StyledText semiBold lgX2>Account Setup</StyledText>
           <StyledText lg textCentered>Please provide the basic details to complete the account setup</StyledText>
         </View>
-        <Pressable style={AccountSetup.sectionPhoto} onPress={handleUploadPhoto}>
+        <Pressable style={AccountSetup.sectionPhoto} onPress={pickImage}>
           <View style={AccountSetup.bgBlueRounded}>
             <Image
-              source={require('../../assets/img/face.png')}
-              style={size.sm}
+              source={image ? { uri: image } : require('../../assets/img/face.png')}
+              style={image ?
+                {
+                  width: '100%',
+                  aspectRatio: 1
+                } : size.sm}
             />
           </View>
           <StyledText semiBold lgX2>Add Photo</StyledText>
